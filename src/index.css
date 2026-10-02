@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --text-xs: 0.875rem;
+  --text-xs--line-height: 1.55;
+  --text-sm: 0.96875rem;
+  --text-sm--line-height: 1.62;
+  --text-base: 1.03125rem;
+  --text-base--line-height: 1.68;
+  --text-lg: 1.1875rem;
+  --text-lg--line-height: 1.55;
+}
+
+:root,
+html.light,
+html[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-elevated: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-input: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --accent-emerald: #059669;
+  --accent-emerald-soft: rgba(5, 150, 105, 0.12);
+  --accent-gold: #d97706;
+  --accent-gold-soft: rgba(217, 119, 6, 0.12);
+  --chart-grid: #e2e8f0;
+  --chart-text: #475569;
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: #cbd5e1;
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+  --font-size-min: 0.875rem; /* 14px minimum visible text */
+  --font-size-body: 1.03125rem; /* ~16.5px comfortable body text */
+  --font-size-highlight: 1.0625rem; /* 17px emphasized callouts & key points */
+  color-scheme: light;
+}
+
+html.dark,
+html[data-theme="dark"] {
+  --bg-primary: #0b1120;
+  --bg-secondary: #0f172a;
+  --bg-card: #111c33;
+  --bg-elevated: #172542;
+  --bg-glass: rgba(17, 28, 51, 0.82);
+  --bg-input: #0f172a;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --border-strong: rgba(148, 163, 184, 0.28);
+  --accent-emerald: #10b981;
+  --accent-emerald-soft: rgba(16, 185, 129, 0.15);
+  --accent-gold: #f59e0b;
+  --accent-gold-soft: rgba(245, 158, 11, 0.15);
+  --chart-grid: rgba(148, 163, 184, 0.14);
+  --chart-text: #94a3b8;
+  --chart-tooltip-bg: #0f172a;
+  --chart-tooltip-border: rgba(148, 163, 184, 0.25);
+  --shadow-card: 0 10px 30px -5px rgba(2, 6, 23, 0.55);
+  --font-size-min: 0.875rem;
+  --font-size-body: 1.03125rem;
+  --font-size-highlight: 1.0625rem;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--font-size-body);
+  line-height: 1.68;
+  margin: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  overflow-x: hidden;
+}
+
+/* Enforce 14px minimum on all small text utilities & comfortable Devanagari line-height */
+.text-xs,
+.text-\[10px\],
+.text-\[11px\],
+.text-\[12px\],
+small,
+th,
+td,
+label,
+caption,
+footer {
+  font-size: max(0.875rem, 14px);
+  line-height: 1.6;
+}
+
+.text-sm,
+input,
+select,
+textarea,
+button {
+  font-size: 0.96875rem;
+  line-height: 1.62;
+}
+
+/* Highlighted / emphasized callouts ("Remember This", "Common Mistake", verdict badges, key results) */
+.highlight-callout {
+  font-size: var(--font-size-highlight);
+  line-height: 1.65;
+}
+
+.verdict-badge-text {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Syne', sans-serif;
+  text-wrap: balance;
+}
+
+.font-mono, .tabular-nums {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.theme-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.theme-glass {
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+}
+
+.theme-input {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.theme-input:focus {
+  outline: none;
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 3px var(--accent-emerald-soft);
+}
+
